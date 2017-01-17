@@ -34,7 +34,7 @@ public class TykDispatcher extends DispatcherGrpc.DispatcherImplBase {
 
     CoprocessObject.Object MyPreHook(CoprocessObject.Object request) {
         CoprocessObject.Object.Builder builder = request.toBuilder();
-        builder.getRequestBuilder().putSetHeaders("someheader", "someavalue");
+        builder.getRequestBuilder().putSetHeaders("customheader", "customvalue");
         return builder.build();
     }
 }
