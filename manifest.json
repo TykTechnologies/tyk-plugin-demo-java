@@ -1,0 +1,14 @@
+{
+  "file_list": [
+  ],
+  "custom_middleware": {
+    "pre": [
+      {
+        "name": "MyPreMiddleware"
+      }
+    ],
+    "driver": "grpc"
+  },
+  "checksum": "",
+  "signature": ""
+}
