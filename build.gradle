@@ -1,0 +1,13 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.google.protobuf:protobuf-java:3.1.0'
+    compile 'io.grpc:grpc-all:1.0.3'
+}
+
+mainClassName = "com.tyktechnologies.tykmiddleware.TykMiddleware"
