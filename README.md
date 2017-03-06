@@ -14,11 +14,7 @@ This plugin implements a single hook, it performs a header injection, you may se
 
 ## Running the gRPC server
 
-To run:
-
-```
-$ mvn exec:java -Dexec.mainClass="com.tyktechnologies.tykmiddleware.TykMiddleware"
-```
+	gradle run
 
 ## Building a plugin bundle
 
