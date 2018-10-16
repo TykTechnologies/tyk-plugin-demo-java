@@ -1,13 +1,54 @@
-apply plugin: 'java'
-apply plugin: 'application'
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.1'
+    }
+}
+
+plugins {
+  id "com.google.protobuf" version "0.8.6"
+  id "java"
+  id "application"
+  id "idea"
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.6.1"
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.15.1'
+        }
+    }
+    generateProtoTasks {
+        all()*.plugins {
+            grpc {}
+        }
+    }
+    generatedFilesBaseDir = "$projectDir/src/generated"
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+mainClassName = "com.tyktechnologies.tykmiddleware.TykMiddleware"
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    compile 'com.google.protobuf:protobuf-java:3.1.0'
-    compile 'io.grpc:grpc-all:1.0.3'
+    compile 'io.grpc:grpc-all:1.15.1'
+    compile 'com.rabbitmq:amqp-client:5.4.2'
 }
 
-mainClassName = "com.tyktechnologies.tykmiddleware.TykMiddleware"
+idea {
+    module {
+        sourceDirs += file("${projectDir}/src/generated/main/java");
+        sourceDirs += file("${projectDir}/src/generated/main/grpc");
+    }
+}
+
