@@ -17,6 +17,7 @@ This plugin implements a single hook, it performs a header injection, you may se
 To run:
 
 ```
+$ mvn compile
 $ mvn exec:java -Dexec.mainClass="com.tyktechnologies.tykmiddleware.TykMiddleware"
 ```
 
