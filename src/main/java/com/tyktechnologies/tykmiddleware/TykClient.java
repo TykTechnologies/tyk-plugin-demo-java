@@ -1,6 +1,7 @@
 package com.tyktechnologies.tykmiddleware;
 
 import coprocess.DispatcherGrpc;
+import coprocess.CoprocessMiniRequestObject;
 import coprocess.CoprocessObject;
 
 import io.grpc.StatusRuntimeException;
@@ -48,10 +49,17 @@ public class TykClient {
     System.out.println("Initializing gRPC client");
     TykClient client = new TykClient("localhost", 5555);
 
-    CoprocessObject.Object req = CoprocessObject.Object.newBuilder()
-    .setHookName("MyPreMiddleware")
+    // The mini request object definition is found here: https://github.com/TykTechnologies/tyk-protobuf/blob/master/proto/coprocess_mini_request_object.proto
+    CoprocessMiniRequestObject.MiniRequestObject miniRequestObj = CoprocessMiniRequestObject.MiniRequestObject.newBuilder()
+    .putHeaders("Authorization", "token")
     .build();
 
+    // Initialize a CP object using the appropriate hook name and the mini request object built earlier:
+    CoprocessObject.Object req = CoprocessObject.Object.newBuilder()
+    .setHookName("MyPreMiddleware")
+    .setRequest(miniRequestObj)
+    .build();
+    
     logger.log(Level.INFO, "Dispatching request:" + req.toString());
 
     try {
