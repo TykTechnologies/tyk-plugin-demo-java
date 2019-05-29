@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - 5556:80
+    volumes:
+      - ./bundle.zip:/usr/share/nginx/html/bundle.zip
