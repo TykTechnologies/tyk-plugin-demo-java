@@ -3,12 +3,13 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.1'
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.8'
+
     }
 }
 
 plugins {
-  id "com.google.protobuf" version "0.8.6"
+  id "com.google.protobuf" version "0.8.8"
   id "java"
   id "application"
   id "idea"
@@ -16,11 +17,11 @@ plugins {
 
 protobuf {
     protoc {
-        artifact = "com.google.protobuf:protoc:3.6.1"
+        artifact = "com.google.protobuf:protoc:3.7.1"
     }
     plugins {
         grpc {
-            artifact = 'io.grpc:protoc-gen-grpc-java:1.15.1'
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.21.0'
         }
     }
     generateProtoTasks {
@@ -41,8 +42,9 @@ repositories {
 }
 
 dependencies {
-    compile 'io.grpc:grpc-all:1.15.1'
+    compile 'io.grpc:grpc-all:1.21.0'
     compile 'com.rabbitmq:amqp-client:5.4.2'
+    compileOnly "javax.annotation:javax.annotation-api:1.2"
 }
 
 idea {

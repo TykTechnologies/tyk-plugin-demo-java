@@ -2,11 +2,14 @@
   "file_list": [
   ],
   "custom_middleware": {
-    "pre": [
-      {
-        "name": "MyPreMiddleware"
+    "auth_check": { "name": "MyAuthCheck" },
+    "id_extractor": {
+      "extract_from": "header",
+      "extract_with": "value",
+      "extractor_config": {
+        "header_name": "Authorization"
       }
-    ],
+    },
     "driver": "grpc"
   },
   "checksum": "",
