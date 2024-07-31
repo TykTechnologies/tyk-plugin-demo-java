@@ -18,5 +18,5 @@ This plugin implements a single hook, it performs a header injection, you may se
 
 ## Building a plugin bundle
 
-The [`manifest.json`](manifest.json) file describes the hooks implemented by this plugin, to use it you must generate a bundle and load it into your Tyk API settings, [this guide](https://tyk.io/docs/nightly/plugins/how-to-serve-plugins/plugin-bundles) will walk you through the process.
+The [`manifest.json`](manifest.json) file describes the hooks implemented by this plugin, to use it you must generate a bundle and load it into your Tyk API settings, [this guide](https://tyk.io/docs/plugins/how-to-serve-plugins/plugin-bundles) will walk you through the process.
 
