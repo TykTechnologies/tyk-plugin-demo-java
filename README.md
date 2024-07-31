@@ -23,5 +23,5 @@ $ mvn exec:java -Dexec.mainClass="com.tyktechnologies.tykmiddleware.TykMiddlewar
 
 ## Building a plugin bundle
 
-The [`manifest.json`](manifest.json) file describes the hooks implemented by this plugin, to use it you must generate a bundle and load it into your Tyk API settings, [this guide](https://tyk.io/tyk-documentation/customise-tyk/plugins/rich-plugins/plugin-bundles/) will walk you through the process.
+The [`manifest.json`](manifest.json) file describes the hooks implemented by this plugin, to use it you must generate a bundle and load it into your Tyk API settings, [this guide](https://tyk.io/docs/plugins/how-to-serve-plugins/plugin-bundles) will walk you through the process.
 
